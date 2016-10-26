@@ -289,7 +289,7 @@
         "name":"markup.inserted"
     },
     {
-      "match":"(^\\s*-[^#\\?]*)((?:\\?|!)+:.*)$"
+        "match":"(^\\s*-[^#\\?]*)((?:\\?|!)+:.*)$"
         "captures":
           "1":
               "name":"markup.deleted"
@@ -338,4 +338,4 @@
       "match": "\\*[^* ]+\\*"
       "name": "markup.bold"
     }
-  ] //end of patterns
+  ]
