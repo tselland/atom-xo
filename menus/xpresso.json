@@ -1,0 +1,26 @@
+{
+  "context-menu": {
+    "atom-text-editor": [
+      {
+        "label": "Toggle xpresso",
+        "command": "xpresso:toggle"
+      }
+    ]
+  },
+  "menu": [
+    {
+      "label": "Packages",
+      "submenu": [
+        {
+          "label": "xpresso",
+          "submenu": [
+            {
+              "label": "Toggle",
+              "command": "xpresso:toggle"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

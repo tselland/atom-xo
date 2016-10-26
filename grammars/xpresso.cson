@@ -1,0 +1,341 @@
+"scopeName":"source.xo",
+"fileTypes":["xo", "txt"],
+"name":"XO"
+
+"patterns": [
+    {
+        "match":"\\((?:[0-9][0-9]:[0-9][0-9]:[0-9]+\\.[0-9][0-9][0-9])\\)"
+        "name":"keyword"
+    },
+    {
+        "match":"^\\s*((?:(?:\\([!]\\))|!).+$)"
+        "captures":
+          "1":
+            "name":"markup.warning.inverted"
+    },
+    {
+        "match":"([A-Z][A-Za-z\\(\\) ]+), ((?:(?:2099)|(?:5392)|(?:2997)|(?:2998)|(?:0))\\$[0-9]+)"
+        "captures":
+          "1":
+            "name":"markup.deleted"
+          "2":
+            "name":"keyword"
+    },
+    {
+        "match":"([A-Z]+-[0-9]+ -- [A-Za-z\\(\\)\\- ]+), ((?:9235)\\$[0-9]+)"
+        "captures":
+          "1":"markup.inserted"
+          "2":"keyword"
+    },
+    {
+        "match":"\\b(?:http(?:s)?://.*\\.com.*)\\b"
+        "name":"color.green"
+    },
+    {
+        "match":"^# =(\\s*.*?)\\s*=\\s*$\\n?"
+        "captures":
+          "1":
+            "name":"meta.toc-list.banner.line"
+        "name":"comment.line.banner"
+    },
+    {
+        "begin":"^[A-Z][A-Za-z ]+$"
+        "beginCaptures":"^\\s*$"
+        "end":
+          "0":
+            "name":"entity.name.class"
+        "name":"meta.class"
+        "patterns": [
+          {
+            "match":"^\\s+\\.?.*+$"
+            "name":"entity.other.attribute-name"
+          }
+        ]
+    },
+    {
+        "match":"(\\[(?:SC|SET|TSK|RT|MB|XML|US|LP|TV|CND|WF|UT|W8)\\]:)((?: >)?\\s*[A-Za-z][^<=#]*), ([0-9]+\\$[0-9]+)"
+        "captures":
+          "1":
+            "name":"support.type"
+          "2":
+            "name":"entity.name.class"
+          "3":
+            "name":"keyword"
+    },
+    {
+        "match":"([0-9]+\\$[0-9]+)"
+        "name":"keyword"
+    },
+    {
+        "match":"NULL|null"
+        "name":"keyword"
+    },
+    {
+        "match":"([A-Z][A-Za-z \\.()0-9\\-:]*), ((?:57)\\$[0-9]+)"
+        "captures":
+          "1":
+            "name":"keyword"
+          "2":
+            "name":"keyword"
+        "comment":"elements"
+    },
+    {
+        "captures":
+          "1":
+            "name":"variable.parameter"
+          "2":
+            "name":"keyword"
+        "comment":"elements"
+        "match":"(\\s*[A-Z][A-Za-z \\.()0-9\\-]*(?: \\[EL\\])?), ((?:6|4608|3005|3019|4297)\\$[0-9]+)"
+    },
+    {
+        "captures":
+          "1":
+            "name":"wats.variable"
+          "2":
+            "name":"keyword"
+        "comment":"elements"
+        "match":"(\\s*[A-Z][A-Za-z \\.()0-9\\-:]*), ((?:800|10637)\\$[0-9]+)"
+    },
+    {
+        "match":"[A-Z][^\\[\\]]* \\[(RL)\\]"
+        "name":"entity.name.relationship"
+    },
+    {
+        "captures":
+          "1":
+            "name":"entity.name.class"
+          "2":
+            "name":"keyword"
+        "comment":"instance sets"
+        "match":"([A-Z][A-Za-z\\.\\(\\)\\- ]* ?(?:\\[(?:Nonsingular|Singular)\\])? ?(?:\\[(?:WS|CL)\\]|\\*PR|\\*FC|\\*ST)*), ((?:1|15)\\$[0-9]+)"
+    },
+    {
+        "comment":"attributes"
+        "match":"[A-Z][A-Za-z \\.\\(\\)]* \\[(BL|DT|NM|CR)\\]"
+        "name":"variable"
+    },
+    {
+        "comment":"RAMBs"
+        "match":"[A-Z][A-Za-z\\(\\) ]*@[^:]*\\((?:GA|GAS|GRA|SA|BA|SAC|EBE|CN|CD|CR|EC)\\)(?:\\*P|\\*O|\\*S|\\(public\\)|\\*\\(abstract\\)|\\*\\(final\\))*\\[ramb\\](?:\\+\\?\\?\\?|\\+PA|\\+DT|\\+TM)*"
+        "name":"variable"
+    },
+    {
+        "comment":"RAMs"
+        "match":"(?:\\(implements for [^\\)]+\\) )?[A-Z][A-Za-z\\(\\) ]*@[^:]*\\((?:GA|GAS|GRA|SA|BA|EBE|CN|CR|EC)\\)(?:\\*P|\\*O|\\*S|\\(public\\)|\\*\\(abstract\\)|\\*\\(final\\))*"
+        "name":"variable"
+    },
+    {
+        "comment":"REMBs"
+        "match":"[A-Z][A-Za-z\\(\\) ]*@[^:]*\\((?:BE|GRE|GES)\\)(?:\\*P|\\*O|\\*S|\\(public\\)|\\*\\(abstract\\)|\\*\\(final\\))*\\[remb\\](?:\\+\\?\\?\\?|\\+PA|\\+DT|\\+TM)*"
+        "name":"variable.parameter"
+    },
+    {
+        "comment":"REMs"
+        "match":"(?:\\(implements for [^\\)]+\\) )?[A-Z][A-Za-z\\(\\) ]*@[^:]*\\((?:BE|GRE|GES)\\)(?:\\*P|\\*O|\\*S|\\(public\\)|\\*\\(abstract\\)|\\*\\(final\\))*"
+        "name":"variable.parameter"
+    },
+    {
+        "comment":"RSMBs"
+        "match":"[A-Z][A-Za-z\\(\\) ]*@[^:]*\\((?:GR|GRS|GSS|SS|IOP|GSP|GSI|SSC)\\)(?:\\*P|\\*O|\\*S|\\(public\\)|\\*\\(abstract\\)|\\*\\(final\\))*\\[rsmb\\](?:\\+\\?\\?\\?|\\+PA|\\+DT|\\+TM)*"
+        "name":"entity.name.function"
+    },
+    {
+        "comment":"RSMs"
+        "match":"(?:\\(implements for [^\\)]+\\) )?[A-Z][A-Za-z\\(\\) ]*@[^:]*\\((?:GR|GRS|GSS|SS|IOP|GSP|GSI|SSC)\\)(?:\\*P|\\*O|\\*S|\\(public\\)|\\*\\(abstract\\)|\\*\\(final\\))*"
+        "name":"entity.name.function"
+    },
+    {
+        "comment":"RSMBs"
+        "match":"[A-Z][A-Za-z\\(\\) ]*@[^:]*\\((?:PU|PRU|DPU)\\)(?:\\*P|\\*O|\\*S|\\(public\\)|\\*\\(abstract\\)|\\*\\(final\\))*\\[pumb\\](?:\\+\\?\\?\\?|\\+PA|\\+DT|\\+TM)*"
+        "name":"constant.language"
+    },
+    {
+        "comment":"RSMs, PRUs have PA and or conditions directly on the method and not on MBs"
+        "match":"(?:\\(implements for [^\\)]+\\) )?[A-Z][A-Za-z\\(\\) ]*@[^:]*\\((?:PU|PRU|DPU)\\)(?:\\*P|\\*O|\\*S|\\(public\\)|\\*\\(abstract\\)|\\*\\(final\\)|\\+\\?\\?\\?|\\+PA)*"
+        "name":"constant.language"
+    },
+    {
+        "comment":"RSMs, PRUs have PA and or conditions directly on the method and not on MBs"
+        "match":"(?:\\(implements for [^\\)]+\\) )?[A-Z][A-Za-z\\(\\) ]*@[^:]*\\((?:CT)\\)(?:\\*P|\\*O|\\*S|\\(public\\)|\\*\\(abstract\\)|\\*\\(final\\)|\\+\\?\\?\\?|\\+PA)*"
+        "name":"keyword"
+    },
+    {
+        "captures":
+          "1":
+            "name":"entity.name.function"
+          "2":
+            "name":"keyword"
+        "comment":"instance sets"
+        "match":"(\\[GST\\] : .*), ((?:11952)\\$[0-9]+)"
+    },
+    {
+        "captures":
+          "1":
+            "name":"variable"
+          "2":
+            "name":"keyword"
+        "comment":"instance sets"
+        "match":"(\\[GAT\\] : .*), ((?:11952)\\$[0-9]+)"
+    },
+    {
+        "match":"^\\s*= (.+) =$"
+        "name":"markup.heading.2.html"
+        "captures":
+          "1":
+            "name": "meta.toc-list.banner.line"
+    },
+    {
+        "match":"^\\s*==(.+)==$"
+        "name":"markup.heading.5.html"
+        "captures":
+          "1":
+            "name": "meta.toc-list.banner.block"
+    },
+    {
+        "match":"[\\(|<](?:[0-9a-z ][0-9]*|[A-WYZ]*[0-9]*)[\\)|>]"
+        "name":"markup.deleted"
+    },
+    {
+        "match":"\\((usage count: [0-9]+)\\)"
+        "captures":
+          "1":
+            "name":"variable"
+
+    },
+    {
+        "match":"\\{\\{.+\\}\\}"
+        "name":"markup.bold"
+
+    },
+    {
+        "begin":"\""
+        "end":"\""
+        "name":"string.quoted.double"
+        "patterns": [
+          {
+            "match":"\\."
+            "name":"constant.character.escape"
+          }
+      ],
+
+    },
+    {
+        "match":"<(Reused|New ?[0-9]*|Renamed|Edit|Reused/Renamed|Modify|New mb|New (?:below|above|ip)(?::? ?[0-9]*)|Rename|Removed|Add parm|FAILED|TEST|New from prior jira|deprecate|deprecated)>",
+        "name":"markup.deleted"
+    },
+    {
+        "match":"<(existing|reused|new ?[A-Za-z_0-9 ]*|renamed|edit|reused/renamed|modif(?:y|ied)|rename|removed|add parm|PASSED|added|activate|activated)>",
+        "name":"markup.inserted"
+    },
+    {
+        "match":"(#.*)((?:\\?:|!:)+.+)$"
+        "captures":
+          "1":
+            "name":"comment"
+          "2":
+            "name":"markup.deleted"
+
+    },
+    {
+        "match":"(#) ?(ALERT:?|BUG:?|(?:NO)?TEST(?:ED)?:?|TODO:?|DONE:?|FIXME:?|FIXED:?|CHANGED:?|NOTE:?|WARNING:?|:EXCEPTION:?)?(INFORMATIONAL:?)?(.*$)"
+        "captures":
+          "1":
+            "name":"comment"
+          "2":
+            "name":"keyword"
+          "3":
+            "name":"entity.name.class"
+          "4":
+            "name":"comment"
+
+        "name":"comment"
+    },
+    {
+        "match":"(^\\s*\\+[^#]*)(?:(# )?(ALERT:?|BUG:?|(?:NO)?TEST(?:ED)?:?|TODO:?|DONE:?|FIXME:?|FIX(?:ED)?:?|CHANGED:?|NOTE:?|WARNING:?|:EXCEPTION?)?(.*)?)?$"
+        "captures":
+          "1":
+            "name":"markup.inserted"
+          "2":
+            "name":"comment"
+          "3":
+            "name":"keyword"
+          "4":
+            "name":"comment"
+
+    },
+    {
+        "match":"(^\\s*\\+[^#\\?]*)((?:\\?|!)+:.*)$"
+        "captures":
+          "1":
+            "name":"markup.inserted"
+          "2":
+            "name":"markup.deleted"
+    },
+    {
+        "match":"(^\\s*-[^#]*)(?:(# )?(BUG:?|TODO:?|DONE:?|FIXME:?|FIXED:?|CHANGED:?|NOTE:?|WARNING:?|:EXCEPTION?)?(.*)?)?$"
+        "captures":
+          "1":
+            "name":"markup.deleted"
+          "2":
+            "name":"comment"
+          "3":
+            "name":"keyword"
+          "4":
+            "name":"comment"
+    },
+    {
+        "match":"^(\\s*\\+[^#]*)$"
+        "name":"markup.inserted"
+    },
+    {
+      "match":"(^\\s*-[^#\\?]*)((?:\\?|!)+:.*)$"
+        "captures":
+          "1":
+              "name":"markup.deleted"
+          "2":
+              "name":"markup.deleted"
+    },
+    {
+        "match":"^\\s*-[^#]*$"
+        "name":"markup.deleted"
+    },
+    {
+        "match":"(?:\\?|!)+:.*$"
+        "name":"markup.deleted"
+    },
+    {
+        "match":"\\(/\\).*$"
+        "name":"markup.inserted.inverted"
+    },
+    {
+        "match":"\\(\\?\\).*$"
+        "name":"markup.changed.inverted"
+    },
+    {
+        "match":"\\([xX]\\).*$"
+        "name":"markup.deleted.inverted"
+    },
+    {
+        "match":"(<[A-Za-z_\\(\\)0-9]*)+\\s*([0-9]+\\$[0-9]+)?(>)"
+        "captures":
+          "1":
+              "name":"variable"
+          "2":
+              "name":"keyword"
+          "3":
+              "name":"variable"
+    },
+    {
+        "match":"<[A-Za-z_\\(\\)0-9 ]*>"
+        "name":"comment"
+    },
+    {
+        "match":"^\\s*[A-WYZa-z0-9\\-/ ]+(:|/)"
+        "name":"markup.bold"
+    },
+    {
+      "match": "\\*[^* ]+\\*"
+      "name": "markup.bold"
+    }
+  ] //end of patterns
